@@ -6,4 +6,9 @@
         android:orderInCategory="100"
         android:title="@string/change_cityItem"
         app:showAsAction="never" />
+    <item
+        android:id="@+id/updateI"
+        android:orderInCategory="100"
+        android:title="@string/updateMenuItem"
+        app:showAsAction="never" />
 </menu>
