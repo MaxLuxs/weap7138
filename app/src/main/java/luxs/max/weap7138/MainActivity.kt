@@ -29,6 +29,8 @@ import java.util.*
  * Menu 2 item : 1.Change City, 2.Update
  *
  * Updating the view is done primitively -> in one method : downloadWeatherDataAndUpdateView().
+ *
+ * Maksim Lukashevich
  * */
 class MainActivity : AppCompatActivity() {
 
