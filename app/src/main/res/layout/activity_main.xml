@@ -6,21 +6,19 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
+
     <LinearLayout
         android:id="@+id/cityLL"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
-        android:layout_marginBottom="30dp"
+        android:layout_marginTop="16dp"
         android:background="@color/background"
         android:gravity="center"
         android:orientation="vertical"
-        app:layout_constraintBottom_toTopOf="@+id/weatherLL"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.142">
+        app:layout_constraintTop_toTopOf="parent">
 
         <TextView
             android:id="@+id/cityNameTW"
@@ -43,57 +41,60 @@
         android:id="@+id/weatherLL"
         android:layout_width="match_parent"
         android:layout_height="130dp"
-        android:orientation="horizontal"
-        android:layout_marginBottom="44dp"
-        android:weightSum="2"
+        android:layout_marginTop="40dp"
         android:background="@color/background"
-        app:layout_constraintBottom_toTopOf="@+id/fogLL"
+        android:orientation="horizontal"
+        android:weightSum="2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent">
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cityLL">
+
         <LinearLayout
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
             android:layout_gravity="center"
-            android:layout_weight="1">
+            android:layout_weight="1"
+            android:orientation="vertical">
+
             <TextView
                 android:id="@+id/weatherMainTW"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
-                android:textSize="20sp"
-                android:hint="@string/mainTW"/>
+                android:hint="@string/mainTW"
+                android:textSize="20sp" />
+
             <TextView
                 android:id="@+id/weatherDescriptionTW"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
-                android:textSize="20sp"
-                android:hint="@string/descriptionTW"/>
+                android:hint="@string/descriptionTW"
+                android:textSize="20sp" />
         </LinearLayout>
+
         <ImageView
             android:id="@+id/weatherIcon"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:gravity="center"
             android:layout_weight="1"
-            app:srcCompat="@drawable/ic_sunny_140"/>
+            android:gravity="center"
+            app:srcCompat="@drawable/ic_sunny_140" />
     </LinearLayout>
-
 
     <LinearLayout
         android:id="@+id/fogLL"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="30dp"
+        android:layout_marginTop="40dp"
+        android:background="@color/background"
         android:gravity="center"
         android:orientation="vertical"
-        android:background="@color/background"
-        app:layout_constraintBottom_toTopOf="@+id/temperatureTW"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent">
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/weatherLL">
 
         <TextView
             android:id="@+id/FOGTW"
@@ -130,15 +131,15 @@
         android:id="@+id/temperatureTW"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="214dp"
+        android:layout_marginTop="40dp"
         android:background="@color/background"
         android:gravity="center"
         android:hint="@string/temperatureTW"
         android:textSize="60sp"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/fogLL" />
 
     <ProgressBar
         android:id="@+id/progressBar"
@@ -154,26 +155,27 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="140dp"
-        android:orientation="vertical"
+        android:layout_marginTop="20dp"
         android:background="@color/background"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
+        android:orientation="vertical"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/temperatureTW">
 
         <TextView
             android:id="@+id/maxTempTW"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="40dp"
             android:hint="@string/temp_maxTW"
-            android:textSize="18sp"
-            android:layout_marginStart="40dp" />
+            android:textSize="18sp" />
+
         <TextView
             android:id="@+id/minTempTW"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="40dp"
-            android:textSize="18sp"
-            android:hint="@string/temp_minTW" />
+            android:hint="@string/temp_minTW"
+            android:textSize="18sp" />
     </LinearLayout>
 
 
