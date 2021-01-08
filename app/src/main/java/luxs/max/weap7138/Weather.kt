@@ -33,8 +33,8 @@ data class MainWeatherData(
     val temp:Double,
     val pressure:Int,
     val humidity:Int,
-    val tempmin:Double,
-    val tempmax:Double
+    val temp_min:Double,
+    val temp_max:Double
 )
 
 data class Wind(

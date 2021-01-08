@@ -6,6 +6,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.http.GET
 import retrofit2.http.Headers
 import retrofit2.http.Path
+import retrofit2.http.Query
 import java.util.concurrent.TimeUnit
 
 const val BASE_URL = "https://community-open-weather-map.p.rapidapi.com/"
@@ -13,10 +14,8 @@ const val BASE_URL = "https://community-open-weather-map.p.rapidapi.com/"
 interface ApiService{
     @Headers("x-rapidapi-key: 428dc8cd86mshb5771208a2f96b7p1298abjsn6f89d16e8d94",
         "x-rapidapi-host: community-open-weather-map.p.rapidapi.com")
-    @GET("weather?q=Minsk")
-    suspend fun getWeather(
-
-    ):WeatherData
+    @GET("weather?")
+    suspend fun getWeather(@Query("q") cityName:String):WeatherData
 
     companion object Factory{
         fun create():ApiService{

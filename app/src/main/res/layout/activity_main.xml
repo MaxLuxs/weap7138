@@ -6,20 +6,21 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-
     <LinearLayout
         android:id="@+id/cityLL"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/material_on_primary_emphasis_medium"
+        android:layout_marginTop="30dp"
+        android:layout_marginBottom="30dp"
+        android:background="@color/background"
         android:gravity="center"
         android:orientation="vertical"
-        app:layout_constraintBottom_toTopOf="@+id/weatherIcon"
+        app:layout_constraintBottom_toTopOf="@+id/weatherLL"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.536">
+        app:layout_constraintVertical_bias="0.142">
 
         <TextView
             android:id="@+id/cityNameTW"
@@ -38,27 +39,57 @@
             android:textSize="20sp" />
     </LinearLayout>
 
-    <ImageView
-        android:id="@+id/weatherIcon"
+    <LinearLayout
+        android:id="@+id/weatherLL"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="28dp"
-        android:gravity="center"
-        android:background="@color/material_on_primary_emphasis_medium"
+        android:layout_height="130dp"
+        android:orientation="horizontal"
+        android:layout_marginBottom="44dp"
+        android:weightSum="2"
+        android:background="@color/background"
         app:layout_constraintBottom_toTopOf="@+id/fogLL"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:srcCompat="@drawable/ic_sunny_140" />
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent">
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_gravity="center"
+            android:layout_weight="1">
+            <TextView
+                android:id="@+id/weatherMainTW"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:textSize="20sp"
+                android:hint="Main"/>
+            <TextView
+                android:id="@+id/weatherDescriptionTW"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:textSize="20sp"
+                android:hint="Description"/>
+        </LinearLayout>
+        <ImageView
+            android:id="@+id/weatherIcon"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_weight="1"
+            app:srcCompat="@drawable/ic_sunny_140"/>
+    </LinearLayout>
+
 
     <LinearLayout
         android:id="@+id/fogLL"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="32dp"
+        android:layout_marginBottom="30dp"
         android:gravity="center"
         android:orientation="vertical"
-        android:background="@color/material_on_primary_emphasis_medium"
+        android:background="@color/background"
         app:layout_constraintBottom_toTopOf="@+id/temperatureTW"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -99,11 +130,11 @@
         android:id="@+id/temperatureTW"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="244dp"
+        android:layout_marginBottom="214dp"
+        android:background="@color/background"
         android:gravity="center"
         android:hint="Temperature"
         android:textSize="60sp"
-        android:background="@color/material_on_primary_emphasis_medium"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -119,6 +150,31 @@
         app:layout_constraintStart_toStartOf="parent"
         android:layout_marginBottom="40dp"
         android:visibility="gone"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="140dp"
+        android:orientation="vertical"
+        android:background="@color/background"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <TextView
+            android:id="@+id/maxTempTW"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="Temp max"
+            android:textSize="18sp"
+            android:layout_marginStart="40dp" />
+        <TextView
+            android:id="@+id/minTempTW"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="40dp"
+            android:textSize="18sp"
+            android:hint="Temp min" />
+    </LinearLayout>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
