@@ -2,4 +2,14 @@
     <string name="app_name">weap7138</string>
     <string name="change_cityItem">Change city</string>
     <string name="updateMenuItem">Update</string>
+    <string name="city_nameTW">City name</string>
+    <string name="last_updateTW">Last update</string>
+    <string name="mainTW">Main</string>
+    <string name="descriptionTW">Description</string>
+    <string name="fogTW">FOG</string>
+    <string name="humidityTW">Humidity</string>
+    <string name="pressureTW">Pressure</string>
+    <string name="temperatureTW">Temperature</string>
+    <string name="temp_maxTW">Temp max</string>
+    <string name="temp_minTW">Temp min</string>
 </resources>

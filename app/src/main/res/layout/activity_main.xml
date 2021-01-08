@@ -27,7 +27,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:hint="City name"
+            android:hint="@string/city_nameTW"
             android:textSize="20sp" />
 
         <TextView
@@ -35,7 +35,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:hint="Last update"
+            android:hint="@string/last_updateTW"
             android:textSize="20sp" />
     </LinearLayout>
 
@@ -63,14 +63,14 @@
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:textSize="20sp"
-                android:hint="Main"/>
+                android:hint="@string/mainTW"/>
             <TextView
                 android:id="@+id/weatherDescriptionTW"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:textSize="20sp"
-                android:hint="Description"/>
+                android:hint="@string/descriptionTW"/>
         </LinearLayout>
         <ImageView
             android:id="@+id/weatherIcon"
@@ -100,7 +100,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:hint="FOG"
+            android:hint="@string/fogTW"
             android:textSize="20sp" />
 
         <TextView
@@ -108,7 +108,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:hint="Humidity"
+            android:hint="@string/humidityTW"
             android:textSize="20sp"
             app:layout_constraintBottom_toTopOf="@+id/pressureTW"
             app:layout_constraintEnd_toEndOf="parent"
@@ -119,7 +119,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:hint="Pressure"
+            android:hint="@string/pressureTW"
             android:textSize="20sp"
             app:layout_constraintBottom_toTopOf="@+id/temperatureTW"
             app:layout_constraintEnd_toEndOf="parent"
@@ -133,7 +133,7 @@
         android:layout_marginBottom="214dp"
         android:background="@color/background"
         android:gravity="center"
-        android:hint="Temperature"
+        android:hint="@string/temperatureTW"
         android:textSize="60sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -164,7 +164,7 @@
             android:id="@+id/maxTempTW"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:hint="Temp max"
+            android:hint="@string/temp_maxTW"
             android:textSize="18sp"
             android:layout_marginStart="40dp" />
         <TextView
@@ -173,7 +173,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="40dp"
             android:textSize="18sp"
-            android:hint="Temp min" />
+            android:hint="@string/temp_minTW" />
     </LinearLayout>
 
 

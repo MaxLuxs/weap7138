@@ -77,7 +77,13 @@ class MainActivity : AppCompatActivity() {
                             ).show();
                         } else {
                             cityName = et.text.toString()
+                            item.title = "Change city name: $cityName"
                             dialog.cancel()
+                            Toast.makeText(
+                                this,
+                                "Please click update or icon",
+                                Toast.LENGTH_SHORT
+                            ).show();
                         }
                     }
                     .create()
@@ -126,11 +132,21 @@ class MainActivity : AppCompatActivity() {
                             .format(weatherData.main.temp_min - 273.16).toString() + "°C"
                 progressBar.visibility = View.GONE
 
-            } catch (e: Exception) {
-                Log.e("!!!Error", e.toString())
-                Toast.makeText(applicationContext, e.toString(), Toast.LENGTH_SHORT).show()
+            }catch(e : retrofit2.HttpException) {
+                Log.e("!!!HTTPError", e.toString())
+                //gag^_^
+                if (e.code() != 404){
+                    Toast.makeText(applicationContext, e.toString(), Toast.LENGTH_LONG).show()
+                }else{
+                    Toast.makeText(applicationContext,
+                        "Please go to settings and change the city name to the correct one.",
+                        Toast.LENGTH_LONG).show()
+                }
+            }catch (e: Exception) {
+                    Log.e("!!!Error", e.toString())
+                    Toast.makeText(applicationContext, e.toString(), Toast.LENGTH_LONG).show()
+                }
             }
         }
-    }
 
 }
