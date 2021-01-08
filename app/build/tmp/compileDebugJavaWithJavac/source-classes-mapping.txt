@@ -1,0 +1,2 @@
+luxs/max/weap7138/BuildConfig.java
+ luxs.max.weap7138.BuildConfig
