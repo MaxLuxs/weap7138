@@ -1,15 +1,20 @@
 package luxs.max.weap7138
 
-import android.R
 import android.annotation.SuppressLint
+import android.content.DialogInterface
 import android.os.Bundle
 import android.util.Log
 import android.view.Menu
+import android.view.MenuInflater
+import android.view.MenuItem
 import android.view.View
+import android.widget.EditText
 import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.enter_city_layout.*
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -23,19 +28,22 @@ class MainActivity : AppCompatActivity() {
     private val apiService = ApiService.create()
     lateinit var weatherData:WeatherData
 
+    lateinit var cityName:String
+
     @SuppressLint("SetTextI18n")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
         Toast.makeText(applicationContext, "Click on the picture to update", Toast.LENGTH_LONG).show()
+        cityName = "Minsk"
 
         weatherIcon.setOnClickListener(View.OnClickListener {
             CoroutineScope(Dispatchers.Main).launch {
                 try {
                     progressBar.visibility = View.VISIBLE
 
-                    weatherData = apiService.getWeather("Minsk")
+                    weatherData = apiService.getWeather(cityName)
                     Log.d("!!!Data: ", weatherData.toString())
                     lastUpdateTW.text = DateFormat.getDateTimeInstance().format(Date())
                     cityNameTW.text = weatherData.name
@@ -75,8 +83,35 @@ class MainActivity : AppCompatActivity() {
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
-        menuInflater.inflate(R.menu., menu)
+        MenuInflater(this).inflate(R.menu.main_menu, menu)
         return true
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when(item.itemId){
+            R.id.changeCityI -> {
+                val et = EditText(this)
+                val alertDialog = AlertDialog.Builder(this)
+                alertDialog
+                    .setTitle("Enter city name")
+                    .setView(et)
+                    .setPositiveButton("Yes") { dialog, _ ->
+                        if (et.text.isEmpty()) {
+                            Toast.makeText(
+                                this,
+                                "You did not enter a city name",
+                                Toast.LENGTH_SHORT
+                            ).show();
+                        } else {
+                            cityName = et.text.toString()
+                            dialog.cancel()
+                        }
+                    }
+                    .create()
+                alertDialog.show()
+            }
+        }
+        return super.onOptionsItemSelected(item)
     }
 
 }
