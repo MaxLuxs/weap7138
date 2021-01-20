@@ -12,8 +12,8 @@ import java.util.concurrent.TimeUnit
 const val BASE_URL = "https://community-open-weather-map.p.rapidapi.com/"
 
 interface ApiService{
-    @Headers("x-rapidapi-key: 428dc8cd86mshb5771208a2f96b7p1298abjsn6f89d16e8d94",
-        "x-rapidapi-host: community-open-weather-map.p.rapidapi.com")
+    @Headers(Meta.KEY,
+        Meta.HOST)
     @GET("weather?")
     suspend fun getWeather(@Query("q") cityName:String):WeatherData
 

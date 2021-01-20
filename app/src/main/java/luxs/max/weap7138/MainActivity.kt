@@ -19,7 +19,6 @@ import kotlinx.coroutines.launch
 import java.text.DateFormat
 import java.text.DecimalFormat
 import java.util.*
-
 /**Main activity
  * Only activity_main.xml
  * Data:
@@ -38,7 +37,10 @@ class MainActivity : AppCompatActivity() {
     lateinit var weatherData:WeatherData
 
     lateinit var cityName:String
-
+/*
+* asda
+* da
+* */
     /**in the main activity, when creating,
      * a toast is displayed with advice for updating,
      * the data is downloaded and the handler for clicking on the icon is installed.*/
@@ -59,6 +61,7 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         MenuInflater(this).inflate(R.menu.main_menu, menu)
+
         return true
     }
 
