@@ -35,9 +35,9 @@
 23-->D:\AndroidProjects\WeatherApp\app\src\main\AndroidManifest.xml:14:9-46
 24        android:usesCleartextTraffic="true" >
 24-->D:\AndroidProjects\WeatherApp\app\src\main\AndroidManifest.xml:9:9-44
-25        <activity android:name="luxs.max.weap7138.MainActivity" >
+25        <activity android:name="luxs.max.weap7138.UI.MainActivity" >
 25-->D:\AndroidProjects\WeatherApp\app\src\main\AndroidManifest.xml:15:9-21:20
-25-->D:\AndroidProjects\WeatherApp\app\src\main\AndroidManifest.xml:15:19-47
+25-->D:\AndroidProjects\WeatherApp\app\src\main\AndroidManifest.xml:15:19-50
 26            <intent-filter>
 26-->D:\AndroidProjects\WeatherApp\app\src\main\AndroidManifest.xml:16:13-20:29
 27                <action android:name="android.intent.action.MAIN" />
@@ -51,13 +51,13 @@
 31        </activity>
 32
 33        <provider
-33-->[com.squareup.picasso:picasso:2.71828] C:\Users\x99\.gradle\caches\transforms-2\files-2.1\90c1e04c07656a0989893b1f1e0adb32\jetified-picasso-2.71828\AndroidManifest.xml:8:9-11:40
+33-->[com.squareup.picasso:picasso:2.71828] C:\Users\x99\.gradle\caches\transforms-2\files-2.1\e13c264e9e22d541c810ad96614e58a6\jetified-picasso-2.71828\AndroidManifest.xml:8:9-11:40
 34            android:name="com.squareup.picasso.PicassoProvider"
-34-->[com.squareup.picasso:picasso:2.71828] C:\Users\x99\.gradle\caches\transforms-2\files-2.1\90c1e04c07656a0989893b1f1e0adb32\jetified-picasso-2.71828\AndroidManifest.xml:9:13-64
+34-->[com.squareup.picasso:picasso:2.71828] C:\Users\x99\.gradle\caches\transforms-2\files-2.1\e13c264e9e22d541c810ad96614e58a6\jetified-picasso-2.71828\AndroidManifest.xml:9:13-64
 35            android:authorities="luxs.max.weap7138.com.squareup.picasso"
-35-->[com.squareup.picasso:picasso:2.71828] C:\Users\x99\.gradle\caches\transforms-2\files-2.1\90c1e04c07656a0989893b1f1e0adb32\jetified-picasso-2.71828\AndroidManifest.xml:10:13-72
+35-->[com.squareup.picasso:picasso:2.71828] C:\Users\x99\.gradle\caches\transforms-2\files-2.1\e13c264e9e22d541c810ad96614e58a6\jetified-picasso-2.71828\AndroidManifest.xml:10:13-72
 36            android:exported="false" />
-36-->[com.squareup.picasso:picasso:2.71828] C:\Users\x99\.gradle\caches\transforms-2\files-2.1\90c1e04c07656a0989893b1f1e0adb32\jetified-picasso-2.71828\AndroidManifest.xml:11:13-37
+36-->[com.squareup.picasso:picasso:2.71828] C:\Users\x99\.gradle\caches\transforms-2\files-2.1\e13c264e9e22d541c810ad96614e58a6\jetified-picasso-2.71828\AndroidManifest.xml:11:13-37
 37    </application>
 38
 39</manifest>

@@ -8,7 +8,7 @@ MERGED from [androidx.core:core-ktx:1.3.2] C:\Users\x99\.gradle\caches\transform
 MERGED from [com.google.android.material:material:1.2.1] C:\Users\x99\.gradle\caches\transforms-2\files-2.1\510c987a74b26e0d326e9880d2cc3fe0\material-1.2.1\AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.constraintlayout:constraintlayout:2.0.4] C:\Users\x99\.gradle\caches\transforms-2\files-2.1\74d3dfb417b8176313f67b6d530795eb\constraintlayout-2.0.4\AndroidManifest.xml:2:1-11:12
 MERGED from [androidx.appcompat:appcompat:1.2.0] C:\Users\x99\.gradle\caches\transforms-2\files-2.1\f1f33b62267c75a6f99331b460a092b0\appcompat-1.2.0\AndroidManifest.xml:17:1-24:12
-MERGED from [com.squareup.picasso:picasso:2.71828] C:\Users\x99\.gradle\caches\transforms-2\files-2.1\90c1e04c07656a0989893b1f1e0adb32\jetified-picasso-2.71828\AndroidManifest.xml:2:1-14:12
+MERGED from [com.squareup.picasso:picasso:2.71828] C:\Users\x99\.gradle\caches\transforms-2\files-2.1\e13c264e9e22d541c810ad96614e58a6\jetified-picasso-2.71828\AndroidManifest.xml:2:1-14:12
 MERGED from [androidx.viewpager2:viewpager2:1.0.0] C:\Users\x99\.gradle\caches\transforms-2\files-2.1\dd19de491629ae7f47a65c6c8b1fd550\jetified-viewpager2-1.0.0\AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.fragment:fragment:1.1.0] C:\Users\x99\.gradle\caches\transforms-2\files-2.1\d9d4f40b4f72e526051c0c60a6448dbf\fragment-1.1.0\AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.appcompat:appcompat-resources:1.2.0] C:\Users\x99\.gradle\caches\transforms-2\files-2.1\dfb5faf4fa113f52011900c6d037c232\jetified-appcompat-resources-1.2.0\AndroidManifest.xml:17:1-24:12
@@ -62,8 +62,8 @@ MERGED from [com.google.android.material:material:1.2.1] C:\Users\x99\.gradle\ca
 MERGED from [com.google.android.material:material:1.2.1] C:\Users\x99\.gradle\caches\transforms-2\files-2.1\510c987a74b26e0d326e9880d2cc3fe0\material-1.2.1\AndroidManifest.xml:22:5-20
 MERGED from [androidx.constraintlayout:constraintlayout:2.0.4] C:\Users\x99\.gradle\caches\transforms-2\files-2.1\74d3dfb417b8176313f67b6d530795eb\constraintlayout-2.0.4\AndroidManifest.xml:9:5-20
 MERGED from [androidx.constraintlayout:constraintlayout:2.0.4] C:\Users\x99\.gradle\caches\transforms-2\files-2.1\74d3dfb417b8176313f67b6d530795eb\constraintlayout-2.0.4\AndroidManifest.xml:9:5-20
-MERGED from [com.squareup.picasso:picasso:2.71828] C:\Users\x99\.gradle\caches\transforms-2\files-2.1\90c1e04c07656a0989893b1f1e0adb32\jetified-picasso-2.71828\AndroidManifest.xml:7:5-12:19
-MERGED from [com.squareup.picasso:picasso:2.71828] C:\Users\x99\.gradle\caches\transforms-2\files-2.1\90c1e04c07656a0989893b1f1e0adb32\jetified-picasso-2.71828\AndroidManifest.xml:7:5-12:19
+MERGED from [com.squareup.picasso:picasso:2.71828] C:\Users\x99\.gradle\caches\transforms-2\files-2.1\e13c264e9e22d541c810ad96614e58a6\jetified-picasso-2.71828\AndroidManifest.xml:7:5-12:19
+MERGED from [com.squareup.picasso:picasso:2.71828] C:\Users\x99\.gradle\caches\transforms-2\files-2.1\e13c264e9e22d541c810ad96614e58a6\jetified-picasso-2.71828\AndroidManifest.xml:7:5-12:19
 MERGED from [androidx.core:core:1.3.2] C:\Users\x99\.gradle\caches\transforms-2\files-2.1\79ee559483d346866425453a88a27286\core-1.3.2\AndroidManifest.xml:24:5-89
 MERGED from [androidx.core:core:1.3.2] C:\Users\x99\.gradle\caches\transforms-2\files-2.1\79ee559483d346866425453a88a27286\core-1.3.2\AndroidManifest.xml:24:5-89
 MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.0] C:\Users\x99\.gradle\caches\transforms-2\files-2.1\4b7c7d2fea271b9775df9dbec2d1fbdc\versionedparcelable-1.1.0\AndroidManifest.xml:24:5-25:19
@@ -84,10 +84,10 @@ MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.0] C:\Users\x9
 		ADDED from D:\AndroidProjects\WeatherApp\app\src\main\AndroidManifest.xml:14:9-46
 	android:usesCleartextTraffic
 		ADDED from D:\AndroidProjects\WeatherApp\app\src\main\AndroidManifest.xml:9:9-44
-activity#luxs.max.weap7138.MainActivity
+activity#luxs.max.weap7138.UI.MainActivity
 ADDED from D:\AndroidProjects\WeatherApp\app\src\main\AndroidManifest.xml:15:9-21:20
 	android:name
-		ADDED from D:\AndroidProjects\WeatherApp\app\src\main\AndroidManifest.xml:15:19-47
+		ADDED from D:\AndroidProjects\WeatherApp\app\src\main\AndroidManifest.xml:15:19-50
 intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
 ADDED from D:\AndroidProjects\WeatherApp\app\src\main\AndroidManifest.xml:16:13-20:29
 action#android.intent.action.MAIN
@@ -110,8 +110,8 @@ MERGED from [androidx.constraintlayout:constraintlayout:2.0.4] C:\Users\x99\.gra
 MERGED from [androidx.constraintlayout:constraintlayout:2.0.4] C:\Users\x99\.gradle\caches\transforms-2\files-2.1\74d3dfb417b8176313f67b6d530795eb\constraintlayout-2.0.4\AndroidManifest.xml:5:5-7:41
 MERGED from [androidx.appcompat:appcompat:1.2.0] C:\Users\x99\.gradle\caches\transforms-2\files-2.1\f1f33b62267c75a6f99331b460a092b0\appcompat-1.2.0\AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.appcompat:appcompat:1.2.0] C:\Users\x99\.gradle\caches\transforms-2\files-2.1\f1f33b62267c75a6f99331b460a092b0\appcompat-1.2.0\AndroidManifest.xml:20:5-22:41
-MERGED from [com.squareup.picasso:picasso:2.71828] C:\Users\x99\.gradle\caches\transforms-2\files-2.1\90c1e04c07656a0989893b1f1e0adb32\jetified-picasso-2.71828\AndroidManifest.xml:5:5-44
-MERGED from [com.squareup.picasso:picasso:2.71828] C:\Users\x99\.gradle\caches\transforms-2\files-2.1\90c1e04c07656a0989893b1f1e0adb32\jetified-picasso-2.71828\AndroidManifest.xml:5:5-44
+MERGED from [com.squareup.picasso:picasso:2.71828] C:\Users\x99\.gradle\caches\transforms-2\files-2.1\e13c264e9e22d541c810ad96614e58a6\jetified-picasso-2.71828\AndroidManifest.xml:5:5-44
+MERGED from [com.squareup.picasso:picasso:2.71828] C:\Users\x99\.gradle\caches\transforms-2\files-2.1\e13c264e9e22d541c810ad96614e58a6\jetified-picasso-2.71828\AndroidManifest.xml:5:5-44
 MERGED from [androidx.viewpager2:viewpager2:1.0.0] C:\Users\x99\.gradle\caches\transforms-2\files-2.1\dd19de491629ae7f47a65c6c8b1fd550\jetified-viewpager2-1.0.0\AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.viewpager2:viewpager2:1.0.0] C:\Users\x99\.gradle\caches\transforms-2\files-2.1\dd19de491629ae7f47a65c6c8b1fd550\jetified-viewpager2-1.0.0\AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.fragment:fragment:1.1.0] C:\Users\x99\.gradle\caches\transforms-2\files-2.1\d9d4f40b4f72e526051c0c60a6448dbf\fragment-1.1.0\AndroidManifest.xml:20:5-22:41
@@ -175,10 +175,10 @@ INJECTED from D:\AndroidProjects\WeatherApp\app\src\main\AndroidManifest.xml
 		ADDED from D:\AndroidProjects\WeatherApp\app\src\main\AndroidManifest.xml
 		INJECTED from D:\AndroidProjects\WeatherApp\app\src\main\AndroidManifest.xml
 provider#com.squareup.picasso.PicassoProvider
-ADDED from [com.squareup.picasso:picasso:2.71828] C:\Users\x99\.gradle\caches\transforms-2\files-2.1\90c1e04c07656a0989893b1f1e0adb32\jetified-picasso-2.71828\AndroidManifest.xml:8:9-11:40
+ADDED from [com.squareup.picasso:picasso:2.71828] C:\Users\x99\.gradle\caches\transforms-2\files-2.1\e13c264e9e22d541c810ad96614e58a6\jetified-picasso-2.71828\AndroidManifest.xml:8:9-11:40
 	android:authorities
-		ADDED from [com.squareup.picasso:picasso:2.71828] C:\Users\x99\.gradle\caches\transforms-2\files-2.1\90c1e04c07656a0989893b1f1e0adb32\jetified-picasso-2.71828\AndroidManifest.xml:10:13-72
+		ADDED from [com.squareup.picasso:picasso:2.71828] C:\Users\x99\.gradle\caches\transforms-2\files-2.1\e13c264e9e22d541c810ad96614e58a6\jetified-picasso-2.71828\AndroidManifest.xml:10:13-72
 	android:exported
-		ADDED from [com.squareup.picasso:picasso:2.71828] C:\Users\x99\.gradle\caches\transforms-2\files-2.1\90c1e04c07656a0989893b1f1e0adb32\jetified-picasso-2.71828\AndroidManifest.xml:11:13-37
+		ADDED from [com.squareup.picasso:picasso:2.71828] C:\Users\x99\.gradle\caches\transforms-2\files-2.1\e13c264e9e22d541c810ad96614e58a6\jetified-picasso-2.71828\AndroidManifest.xml:11:13-37
 	android:name
-		ADDED from [com.squareup.picasso:picasso:2.71828] C:\Users\x99\.gradle\caches\transforms-2\files-2.1\90c1e04c07656a0989893b1f1e0adb32\jetified-picasso-2.71828\AndroidManifest.xml:9:13-64
+		ADDED from [com.squareup.picasso:picasso:2.71828] C:\Users\x99\.gradle\caches\transforms-2\files-2.1\e13c264e9e22d541c810ad96614e58a6\jetified-picasso-2.71828\AndroidManifest.xml:9:13-64

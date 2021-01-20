@@ -22,7 +22,7 @@
         android:testOnly="true"
         android:theme="@style/Theme.Weap7138"
         android:usesCleartextTraffic="true" >
-        <activity android:name="luxs.max.weap7138.MainActivity" >
+        <activity android:name="luxs.max.weap7138.UI.MainActivity" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

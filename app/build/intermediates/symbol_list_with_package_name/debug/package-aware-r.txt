@@ -2150,6 +2150,7 @@ string hide_bottom_view_on_scroll_behavior
 string humidityTW
 string icon_content_description
 string item_view_role_description
+string large_margin
 string last_updateTW
 string mainTW
 string material_slider_range_end
@@ -2196,6 +2197,7 @@ string path_password_eye_mask_visible
 string path_password_strike_through
 string pressureTW
 string search_menu_title
+string small_margin
 string status_bar_notification_info_overflow
 string temp_maxTW
 string temp_minTW

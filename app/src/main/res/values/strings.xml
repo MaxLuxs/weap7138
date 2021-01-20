@@ -12,4 +12,9 @@
     <string name="temperatureTW">Temperature</string>
     <string name="temp_maxTW">Temp max</string>
     <string name="temp_minTW">Temp min</string>
+
+
+<!--    margins:-->
+    <string name="small_margin">10dp</string>
+    <string name="large_margin">10dp</string>
 </resources>
