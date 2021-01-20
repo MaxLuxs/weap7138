@@ -22,6 +22,8 @@
         android:testOnly="true"
         android:theme="@style/Theme.Weap7138"
         android:usesCleartextTraffic="true" >
+        <service android:name="luxs.max.weap7138.Services.UpdateService" />
+
         <activity android:name="luxs.max.weap7138.UI.MainActivity" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -34,6 +36,17 @@
             android:name="com.squareup.picasso.PicassoProvider"
             android:authorities="luxs.max.weap7138.com.squareup.picasso"
             android:exported="false" />
+
+        <service
+            android:name="androidx.room.MultiInstanceInvalidationService"
+            android:directBootAware="true"
+            android:exported="false" />
+
+        <provider
+            android:name="androidx.lifecycle.ProcessLifecycleOwnerInitializer"
+            android:authorities="luxs.max.weap7138.lifecycle-process"
+            android:exported="false"
+            android:multiprocess="true" />
     </application>
 
 </manifest>

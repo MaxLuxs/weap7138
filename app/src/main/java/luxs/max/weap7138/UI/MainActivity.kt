@@ -1,7 +1,12 @@
 package luxs.max.weap7138.UI
 
 import android.annotation.SuppressLint
+import android.content.ComponentName
+import android.content.Context
+import android.content.Intent
+import android.content.ServiceConnection
 import android.os.Bundle
+import android.os.IBinder
 import android.util.Log
 import android.view.Menu
 import android.view.MenuInflater
@@ -11,13 +16,19 @@ import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.ViewModelProvider
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import luxs.max.weap7138.Model.LocalModel.LocalModel
 import luxs.max.weap7138.Model.RemoteModel.ApiService
+import luxs.max.weap7138.Model.RemoteModel.RemoteModel
 import luxs.max.weap7138.R
+import luxs.max.weap7138.Repository.WeatherRepository
+import luxs.max.weap7138.Services.UpdateService
+import luxs.max.weap7138.ViewModel.WeatherViewModel
 import luxs.max.weap7138.WeatherData
 import java.text.DateFormat
 import java.text.DecimalFormat
@@ -37,9 +48,11 @@ import java.util.*
 class MainActivity : AppCompatActivity() {
 
     private val apiService = ApiService.create()
-    lateinit var weatherData: WeatherData
+    lateinit var weatherData: WeatherData//Deprecated
 
     lateinit var cityName:String
+
+    private lateinit var weatherViewModel:WeatherViewModel
 
     /**in the main activity, when creating,
      * a toast is displayed with advice for updating,
@@ -48,14 +61,58 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
         Toast.makeText(applicationContext, "Click on the picture to update", Toast.LENGTH_LONG).show()
         cityName = "Minsk"
+        //Dependency injection: ^_^ where is my dagger
+        val remoteModel = RemoteModel()
+        val localModel = LocalModel()
+        val repository = WeatherRepository(remoteModel, localModel, cityName)
+        weatherViewModel = ViewModelProvider(this).get(WeatherViewModel::class.java)
+        weatherViewModel.repository = repository // Before We are going to create Beautiful
+        weatherViewModel.cityWeatherLiveData.value = null
 
-        downloadWeatherDataAndUpdateView(cityName)
+//        downloadWeatherDataAndUpdateView(cityName)//Deprecated
+        weatherViewModel.getData()
 
         weatherIcon.setOnClickListener(View.OnClickListener {
-            downloadWeatherDataAndUpdateView(cityName)
+//            downloadWeatherDataAndUpdateView(cityName)//Deprecated
+            weatherViewModel.getData()
+        })
+
+        weatherViewModel.cityWeatherLiveData.observe(this, androidx.lifecycle.Observer {
+            val weatherData = weatherViewModel.cityWeatherLiveData.value
+            Log.d("!!!Data: ", weatherData.toString())
+            if (weatherData == null){
+                temperatureTW.text = "No data =(" //<---------------------replace as time will be
+            }else{
+                lastUpdateTW.text = DateFormat.getDateTimeInstance().format(Date())
+                cityNameTW.text = weatherData.name
+
+                Picasso.get().load(
+                    "http://openweathermap.org/img/wn/" +
+                            weatherData.weather[0].icon + "@2x" + ".png"
+                )
+                    .fit()
+                    .centerCrop()
+                    .into(weatherIcon)
+                weatherMainTW.text = weatherData.weather[0].main
+                weatherDescriptionTW.text = weatherData.weather[0].description
+
+                humidityTW.text = "Humidity: " +
+                        weatherData.main.humidity.toString() + " %"
+                pressureTW.text = "Pressure: " +
+                        weatherData.main.pressure.toString() + " hPa"
+                temperatureTW.text =
+                    DecimalFormat("##.#").format(weatherData.main.temp - 273.16)
+                        .toString() + "°C"
+                maxTempTW.text = "Temp max: " +
+                        DecimalFormat("##.#")
+                            .format(weatherData.main.temp_max - 273.16).toString() + "°C"
+                minTempTW.text = "Temp min: " +
+                        DecimalFormat("##.#")
+                            .format(weatherData.main.temp_min - 273.16).toString() + "°C"
+                progressBar.visibility = View.GONE
+            }
         })
     }
 
@@ -66,6 +123,7 @@ class MainActivity : AppCompatActivity() {
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when(item.itemId){
+            //Пункт меню 1
             R.id.changeCityI -> {
                 val et = EditText(this)
                 val alertDialog = AlertDialog.Builder(this)
@@ -93,13 +151,33 @@ class MainActivity : AppCompatActivity() {
                     .create()
                 alertDialog.show()
             }
+            //Пункт меню 2
             R.id.updateI -> {
-                downloadWeatherDataAndUpdateView(cityName)
+                weatherViewModel.getData()
+//                downloadWeatherDataAndUpdateView(cityName)
+            }
+            //Пункт меню 3 -> Обновление в сервисе каждые 10 секунд -> Только для проверки
+            R.id.updateEveryTenSec -> {
+                if (item.title == "Update every ten sec: Off") {
+                    item.title = "Update every ten sec: On"
+                    // Bind to LocalService
+                    Intent(this, UpdateService::class.java).also { intent ->
+                        startService(intent)
+                    }
+                }else{
+                    // Bind to LocalService
+                    Intent(this, UpdateService::class.java).also { intent ->
+                        stopService(intent)
+                    }
+                    item.title = "Update every ten sec: Off"
+                }
+
             }
         }
         return super.onOptionsItemSelected(item)
     }
 
+    //Deprecated!------------------------
     @SuppressLint("SetTextI18n")
     fun downloadWeatherDataAndUpdateView(cityName:String){
         CoroutineScope(Dispatchers.Main).launch {

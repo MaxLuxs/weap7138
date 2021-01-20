@@ -15,7 +15,7 @@
 11-->D:\AndroidProjects\WeatherApp\app\src\main\AndroidManifest.xml:5:22-64
 12
 13    <application
-13-->D:\AndroidProjects\WeatherApp\app\src\main\AndroidManifest.xml:7:5-22:19
+13-->D:\AndroidProjects\WeatherApp\app\src\main\AndroidManifest.xml:7:5-23:19
 14        android:allowBackup="true"
 14-->D:\AndroidProjects\WeatherApp\app\src\main\AndroidManifest.xml:8:9-35
 15        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
@@ -35,29 +35,53 @@
 23-->D:\AndroidProjects\WeatherApp\app\src\main\AndroidManifest.xml:14:9-46
 24        android:usesCleartextTraffic="true" >
 24-->D:\AndroidProjects\WeatherApp\app\src\main\AndroidManifest.xml:9:9-44
-25        <activity android:name="luxs.max.weap7138.UI.MainActivity" >
-25-->D:\AndroidProjects\WeatherApp\app\src\main\AndroidManifest.xml:15:9-21:20
-25-->D:\AndroidProjects\WeatherApp\app\src\main\AndroidManifest.xml:15:19-50
-26            <intent-filter>
-26-->D:\AndroidProjects\WeatherApp\app\src\main\AndroidManifest.xml:16:13-20:29
-27                <action android:name="android.intent.action.MAIN" />
-27-->D:\AndroidProjects\WeatherApp\app\src\main\AndroidManifest.xml:17:17-69
-27-->D:\AndroidProjects\WeatherApp\app\src\main\AndroidManifest.xml:17:25-66
-28
-29                <category android:name="android.intent.category.LAUNCHER" />
-29-->D:\AndroidProjects\WeatherApp\app\src\main\AndroidManifest.xml:19:17-77
-29-->D:\AndroidProjects\WeatherApp\app\src\main\AndroidManifest.xml:19:27-74
-30            </intent-filter>
-31        </activity>
-32
-33        <provider
-33-->[com.squareup.picasso:picasso:2.71828] C:\Users\x99\.gradle\caches\transforms-2\files-2.1\e13c264e9e22d541c810ad96614e58a6\jetified-picasso-2.71828\AndroidManifest.xml:8:9-11:40
-34            android:name="com.squareup.picasso.PicassoProvider"
-34-->[com.squareup.picasso:picasso:2.71828] C:\Users\x99\.gradle\caches\transforms-2\files-2.1\e13c264e9e22d541c810ad96614e58a6\jetified-picasso-2.71828\AndroidManifest.xml:9:13-64
-35            android:authorities="luxs.max.weap7138.com.squareup.picasso"
-35-->[com.squareup.picasso:picasso:2.71828] C:\Users\x99\.gradle\caches\transforms-2\files-2.1\e13c264e9e22d541c810ad96614e58a6\jetified-picasso-2.71828\AndroidManifest.xml:10:13-72
-36            android:exported="false" />
-36-->[com.squareup.picasso:picasso:2.71828] C:\Users\x99\.gradle\caches\transforms-2\files-2.1\e13c264e9e22d541c810ad96614e58a6\jetified-picasso-2.71828\AndroidManifest.xml:11:13-37
-37    </application>
-38
-39</manifest>
+25        <service android:name="luxs.max.weap7138.Services.UpdateService" />
+25-->D:\AndroidProjects\WeatherApp\app\src\main\AndroidManifest.xml:15:9-59
+25-->D:\AndroidProjects\WeatherApp\app\src\main\AndroidManifest.xml:15:18-56
+26
+27        <activity android:name="luxs.max.weap7138.UI.MainActivity" >
+27-->D:\AndroidProjects\WeatherApp\app\src\main\AndroidManifest.xml:16:9-22:20
+27-->D:\AndroidProjects\WeatherApp\app\src\main\AndroidManifest.xml:16:19-50
+28            <intent-filter>
+28-->D:\AndroidProjects\WeatherApp\app\src\main\AndroidManifest.xml:17:13-21:29
+29                <action android:name="android.intent.action.MAIN" />
+29-->D:\AndroidProjects\WeatherApp\app\src\main\AndroidManifest.xml:18:17-69
+29-->D:\AndroidProjects\WeatherApp\app\src\main\AndroidManifest.xml:18:25-66
+30
+31                <category android:name="android.intent.category.LAUNCHER" />
+31-->D:\AndroidProjects\WeatherApp\app\src\main\AndroidManifest.xml:20:17-77
+31-->D:\AndroidProjects\WeatherApp\app\src\main\AndroidManifest.xml:20:27-74
+32            </intent-filter>
+33        </activity>
+34
+35        <provider
+35-->[com.squareup.picasso:picasso:2.71828] C:\Users\x99\.gradle\caches\transforms-2\files-2.1\e13c264e9e22d541c810ad96614e58a6\jetified-picasso-2.71828\AndroidManifest.xml:8:9-11:40
+36            android:name="com.squareup.picasso.PicassoProvider"
+36-->[com.squareup.picasso:picasso:2.71828] C:\Users\x99\.gradle\caches\transforms-2\files-2.1\e13c264e9e22d541c810ad96614e58a6\jetified-picasso-2.71828\AndroidManifest.xml:9:13-64
+37            android:authorities="luxs.max.weap7138.com.squareup.picasso"
+37-->[com.squareup.picasso:picasso:2.71828] C:\Users\x99\.gradle\caches\transforms-2\files-2.1\e13c264e9e22d541c810ad96614e58a6\jetified-picasso-2.71828\AndroidManifest.xml:10:13-72
+38            android:exported="false" />
+38-->[com.squareup.picasso:picasso:2.71828] C:\Users\x99\.gradle\caches\transforms-2\files-2.1\e13c264e9e22d541c810ad96614e58a6\jetified-picasso-2.71828\AndroidManifest.xml:11:13-37
+39
+40        <service
+40-->[androidx.room:room-runtime:2.2.6] C:\Users\x99\.gradle\caches\transforms-2\files-2.1\95a24a7a4967989859826e263fe3e390\room-runtime-2.2.6\AndroidManifest.xml:25:9-28:40
+41            android:name="androidx.room.MultiInstanceInvalidationService"
+41-->[androidx.room:room-runtime:2.2.6] C:\Users\x99\.gradle\caches\transforms-2\files-2.1\95a24a7a4967989859826e263fe3e390\room-runtime-2.2.6\AndroidManifest.xml:26:13-74
+42            android:directBootAware="true"
+42-->[androidx.room:room-runtime:2.2.6] C:\Users\x99\.gradle\caches\transforms-2\files-2.1\95a24a7a4967989859826e263fe3e390\room-runtime-2.2.6\AndroidManifest.xml:27:13-43
+43            android:exported="false" />
+43-->[androidx.room:room-runtime:2.2.6] C:\Users\x99\.gradle\caches\transforms-2\files-2.1\95a24a7a4967989859826e263fe3e390\room-runtime-2.2.6\AndroidManifest.xml:28:13-37
+44
+45        <provider
+45-->[androidx.lifecycle:lifecycle-process:2.2.0] C:\Users\x99\.gradle\caches\transforms-2\files-2.1\70b236710b9628ceddcd9ce5da88b56a\jetified-lifecycle-process-2.2.0\AndroidManifest.xml:25:9-29:43
+46            android:name="androidx.lifecycle.ProcessLifecycleOwnerInitializer"
+46-->[androidx.lifecycle:lifecycle-process:2.2.0] C:\Users\x99\.gradle\caches\transforms-2\files-2.1\70b236710b9628ceddcd9ce5da88b56a\jetified-lifecycle-process-2.2.0\AndroidManifest.xml:26:13-79
+47            android:authorities="luxs.max.weap7138.lifecycle-process"
+47-->[androidx.lifecycle:lifecycle-process:2.2.0] C:\Users\x99\.gradle\caches\transforms-2\files-2.1\70b236710b9628ceddcd9ce5da88b56a\jetified-lifecycle-process-2.2.0\AndroidManifest.xml:27:13-69
+48            android:exported="false"
+48-->[androidx.lifecycle:lifecycle-process:2.2.0] C:\Users\x99\.gradle\caches\transforms-2\files-2.1\70b236710b9628ceddcd9ce5da88b56a\jetified-lifecycle-process-2.2.0\AndroidManifest.xml:28:13-37
+49            android:multiprocess="true" />
+49-->[androidx.lifecycle:lifecycle-process:2.2.0] C:\Users\x99\.gradle\caches\transforms-2\files-2.1\70b236710b9628ceddcd9ce5da88b56a\jetified-lifecycle-process-2.2.0\AndroidManifest.xml:29:13-40
+50    </application>
+51
+52</manifest>

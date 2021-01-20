@@ -2,10 +2,11 @@ package luxs.max.weap7138
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey
+import java.io.Serializable
 
 /**Models kotlin file*/
 
-@Entity
+@Entity(tableName = "cityWeather")
 data class WeatherData(
     val coord:Coord,
     val weather:List<Weather>,
@@ -20,7 +21,7 @@ data class WeatherData(
     @PrimaryKey val id:Int,
     val name:String,
     val cod:Int
-)
+):Serializable
 
 data class Coord(
     val lon:Double,
