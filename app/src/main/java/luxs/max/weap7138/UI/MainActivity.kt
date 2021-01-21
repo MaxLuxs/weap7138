@@ -47,12 +47,16 @@ import java.util.*
  * */
 class MainActivity : AppCompatActivity() {
 
-    private val apiService = ApiService.create()
-    lateinit var weatherData: WeatherData//Deprecated
+    //private val apiService = ApiService.create()//Deprecated
+    //lateinit var weatherData: WeatherData//Deprecated
 
     lateinit var cityName:String
 
     private lateinit var weatherViewModel:WeatherViewModel
+
+    lateinit var remoteModel:RemoteModel
+    lateinit var localModel:LocalModel
+    lateinit var repository: WeatherRepository
 
     /**in the main activity, when creating,
      * a toast is displayed with advice for updating,
@@ -62,11 +66,11 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         Toast.makeText(applicationContext, "Click on the picture to update", Toast.LENGTH_LONG).show()
-        cityName = "Minsk"
+//        cityName = "Minsk"
         //Dependency injection: ^_^ where is my dagger
-        val remoteModel = RemoteModel()
-        val localModel = LocalModel()
-        val repository = WeatherRepository(remoteModel, localModel, cityName)
+        remoteModel = RemoteModel()
+        localModel = LocalModel()
+        repository = WeatherRepository(remoteModel, localModel, "Minsk")
         weatherViewModel = ViewModelProvider(this).get(WeatherViewModel::class.java)
         weatherViewModel.repository = repository // Before We are going to create Beautiful
         weatherViewModel.cityWeatherLiveData.value = null
@@ -80,6 +84,7 @@ class MainActivity : AppCompatActivity() {
         })
 
         weatherViewModel.cityWeatherLiveData.observe(this, androidx.lifecycle.Observer {
+            progressBar.visibility = View.VISIBLE
             val weatherData = weatherViewModel.cityWeatherLiveData.value
             Log.d("!!!Data: ", weatherData.toString())
             if (weatherData == null){
@@ -138,12 +143,14 @@ class MainActivity : AppCompatActivity() {
                                 Toast.LENGTH_SHORT
                             ).show();
                         } else {
-                            cityName = et.text.toString()
+                            val cityName = et.text.toString()
+                            weatherViewModel.repository = WeatherRepository(remoteModel, localModel, cityName)
+                            weatherViewModel.getData()
                             item.title = "Change city name: $cityName"
                             dialog.cancel()
                             Toast.makeText(
                                 this,
-                                "Please click update or icon",
+                                "Load data for $cityName",
                                 Toast.LENGTH_SHORT
                             ).show();
                         }
@@ -158,15 +165,16 @@ class MainActivity : AppCompatActivity() {
             }
             //Пункт меню 3 -> Обновление в сервисе каждые 10 секунд -> Только для проверки
             R.id.updateEveryTenSec -> {
+                val Intent = Intent(this, UpdateService::class.java)
                 if (item.title == "Update every ten sec: Off") {
                     item.title = "Update every ten sec: On"
                     // Bind to LocalService
-                    Intent(this, UpdateService::class.java).also { intent ->
+                    intent.also { intent ->
                         startService(intent)
-                    }
+                    } // Просто выводим сообщение что прошло 10 секунд
                 }else{
                     // Bind to LocalService
-                    Intent(this, UpdateService::class.java).also { intent ->
+                    intent.also { intent ->
                         stopService(intent)
                     }
                     item.title = "Update every ten sec: Off"
@@ -178,57 +186,57 @@ class MainActivity : AppCompatActivity() {
     }
 
     //Deprecated!------------------------
-    @SuppressLint("SetTextI18n")
-    fun downloadWeatherDataAndUpdateView(cityName:String){
-        CoroutineScope(Dispatchers.Main).launch {
-            try {
-                progressBar.visibility = View.VISIBLE
-
-                weatherData = apiService.getWeather(cityName)
-                Log.d("!!!Data: ", weatherData.toString())
-                lastUpdateTW.text = DateFormat.getDateTimeInstance().format(Date())
-                cityNameTW.text = weatherData.name
-
-                Picasso.get().load(
-                    "http://openweathermap.org/img/wn/" +
-                            weatherData.weather[0].icon + "@2x" + ".png"
-                )
-                    .fit()
-                    .centerCrop()
-                    .into(weatherIcon)
-                weatherMainTW.text = weatherData.weather[0].main
-                weatherDescriptionTW.text = weatherData.weather[0].description
-
-                humidityTW.text = "Humidity: " +
-                        weatherData.main.humidity.toString() + " %"
-                pressureTW.text = "Pressure: " +
-                        weatherData.main.pressure.toString() + " hPa"
-                temperatureTW.text =
-                    DecimalFormat("##.#").format(weatherData.main.temp - 273.16)
-                        .toString() + "°C"
-                maxTempTW.text = "Temp max: " +
-                        DecimalFormat("##.#")
-                            .format(weatherData.main.temp_max - 273.16).toString() + "°C"
-                minTempTW.text = "Temp min: " +
-                        DecimalFormat("##.#")
-                            .format(weatherData.main.temp_min - 273.16).toString() + "°C"
-                progressBar.visibility = View.GONE
-
-            }catch(e : retrofit2.HttpException) {
-                Log.e("!!!HTTPError", e.toString())
-                //gag^_^
-                if (e.code() != 404){
-                    Toast.makeText(applicationContext, e.toString(), Toast.LENGTH_LONG).show()
-                }else{
-                    Toast.makeText(applicationContext,
-                        "Please go to settings and change the city name to the correct one.",
-                        Toast.LENGTH_LONG).show()
-                }
-            }catch (e: Exception) {
-                    Log.e("!!!Error", e.toString())
-                    Toast.makeText(applicationContext, e.toString(), Toast.LENGTH_LONG).show()
-                }
-            }
-        }
+//    @SuppressLint("SetTextI18n")
+//    fun downloadWeatherDataAndUpdateView(cityName:String){
+//        CoroutineScope(Dispatchers.Main).launch {
+//            try {
+//                progressBar.visibility = View.VISIBLE
+//
+//                weatherData = apiService.getWeather(cityName)
+//                Log.d("!!!Data: ", weatherData.toString())
+//                lastUpdateTW.text = DateFormat.getDateTimeInstance().format(Date())
+//                cityNameTW.text = weatherData.name
+//
+//                Picasso.get().load(
+//                    "http://openweathermap.org/img/wn/" +
+//                            weatherData.weather[0].icon + "@2x" + ".png"
+//                )
+//                    .fit()
+//                    .centerCrop()
+//                    .into(weatherIcon)
+//                weatherMainTW.text = weatherData.weather[0].main
+//                weatherDescriptionTW.text = weatherData.weather[0].description
+//
+//                humidityTW.text = "Humidity: " +
+//                        weatherData.main.humidity.toString() + " %"
+//                pressureTW.text = "Pressure: " +
+//                        weatherData.main.pressure.toString() + " hPa"
+//                temperatureTW.text =
+//                    DecimalFormat("##.#").format(weatherData.main.temp - 273.16)
+//                        .toString() + "°C"
+//                maxTempTW.text = "Temp max: " +
+//                        DecimalFormat("##.#")
+//                            .format(weatherData.main.temp_max - 273.16).toString() + "°C"
+//                minTempTW.text = "Temp min: " +
+//                        DecimalFormat("##.#")
+//                            .format(weatherData.main.temp_min - 273.16).toString() + "°C"
+//                progressBar.visibility = View.GONE
+//
+//            }catch(e : retrofit2.HttpException) {
+//                Log.e("!!!HTTPError", e.toString())
+//                //gag^_^
+//                if (e.code() != 404){
+//                    Toast.makeText(applicationContext, e.toString(), Toast.LENGTH_LONG).show()
+//                }else{
+//                    Toast.makeText(applicationContext,
+//                        "Please go to settings and change the city name to the correct one.",
+//                        Toast.LENGTH_LONG).show()
+//                }
+//            }catch (e: Exception) {
+//                    Log.e("!!!Error", e.toString())
+//                    Toast.makeText(applicationContext, e.toString(), Toast.LENGTH_LONG).show()
+//                }
+//            }
+//        }
 
 }

@@ -6,6 +6,7 @@ import luxs.max.weap7138.WeatherData
 import java.lang.Exception
 
 class RemoteModel {
+
     private val apiService = ApiService.create()
 
     suspend fun getWeatherRemoteData(cityName:String):WeatherData?{
